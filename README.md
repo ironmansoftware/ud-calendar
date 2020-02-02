@@ -23,4 +23,4 @@ $Sessions = (Invoke-Restmethod http://powershell.fun) | ForEach-Object {
 New-UDCalendar -Events $Sessions
 ```
 
-![](./images/calendar.png)
+![](./images/calendar.PNG)
