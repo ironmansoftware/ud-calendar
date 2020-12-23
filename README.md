@@ -20,7 +20,7 @@ $Sessions = (Invoke-Restmethod http://powershell.fun) | ForEach-Object {
     }
 }
 
-New-UDCalendar -Events $Sessions
+New-UDCalendar -Events $Sessions -height 500 -DefaultDate (get-date "02/06/2020")
 ```
 
 ![](./images/calendar.PNG)

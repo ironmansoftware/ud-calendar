@@ -1,12 +1,10 @@
 import React from 'react';
-import {Calendar, Views} from 'react-big-calendar'
-import localizer from 'react-big-calendar/lib/localizers/moment'
+import { Calendar, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment'
 
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 
-const momentLocalizer = localizer(moment)
-
+const localizer = momentLocalizer(moment)
 
 function Event({ event }) {
   return (
@@ -37,20 +35,12 @@ export default (props) => {
     }
   });
 
-  const defaultDate = events[0].start;
-
   return <Calendar 
-        localizer={momentLocalizer}
+        localizer={localizer}
         events={events}
-        defaultDate={defaultDate}
-        view={Views.DAY}
+        defaultDate={moment(props.defaultDate).toDate()}
         startAccessor="start"
         endAccessor="end"
-        components={{
-          event: Event,
-          agenda: {
-            event: EventAgenda,
-          },
-        }}
+        style={{ height: props.height }}
       />
 }

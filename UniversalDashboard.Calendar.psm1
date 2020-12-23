@@ -28,7 +28,13 @@ function script:New-UDCalendar {
         [string]$Id = (New-Guid).ToString(),
 
         [Parameter()]
-        $Events
+        $Events,
+
+        [Parameter()]
+        [datetime]$DefaultDate = (get-date),
+
+        [Parameter()]
+        [int]$height = 500
     )
 
     End {
@@ -39,6 +45,8 @@ function script:New-UDCalendar {
             id = $Id
 
             events = $Events
+            defaultDate = ($DefaultDate).tostring('yyyy-MM-dd HH:mm:ss')
+            height = $height
         }
     }
 }
